@@ -1,0 +1,46 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    line-height: 1.6;
+    padding: 20px;
+    font-size: 16px;
+}
+
+/* Header styles */
+header {
+    background-color: #4CAF50;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+/* Set a background image for the entire body */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('eagle.jpg');
+    background-size: cover; /* Make the image cover the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    min-height: 100vh; /* Ensure the body takes full viewport height */
+    padding: 20px;
+    color: #e0dbdb;
+    font-size: larger;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    margin-top: 45rcap;
+    padding: 10px;
+    background-color: #523b3b;
+    color: white;
+}
+
