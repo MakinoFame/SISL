@@ -1,32 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Simple Website</title>
-    <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SUSU 1.5K</title>
+<style>
+  /* (Insert previous styles here) - For brevity, assume same styles as before */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+  }
+  header {
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.4&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+  }
+  header h1 {
+    background-color: rgba(0,0,0,0.5);
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 3em;
+  }
+  section {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #f8f5f5;
+  }
+  .feature-card {
+    background-image: url('https://tse3.mm.bing.net/th/id/OIP.MQwLEe6S_AoQeyrQSFQYvQHaLH?w=1060&h=1590&rs=1&pid=ImgDetMain&o=7&rm=3');
+    background-size: cover;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1 1 250px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  h2 {
+    text-align: center;
+    font-size: 2.8em;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+  /* Forms styling same as before */
+  .form-container {
+    background-image: url('https://tse1.mm.bing.net/th/id/OIP.zaWjoIyAWAZCwLJzCAdyIAHaE7?w=626&h=417&rs=1&pid=ImgDetMain&o=7&rm=3');
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  input[type="text"], input[type="password"], input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  /* Hidden sections */
+  #contributionSection, #recordsSection {
+    display: none;
+  }
+  /* Responsive adjustments */
+  @media(max-width: 600px){
+    header h1 {
+      font-size: 1.5em;
+    }
+    .features {
+      flex-direction: column;
+    }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Welcome To The Bro Force</h1>
-    </header>
-    <section>
-        <p>This is a multifunctional site to enable participants make contribtions.</p>
-    </section>
- <section id="aim">
-    <h2>Our Aim</h2>
-    <p>Our platform aims to provide users with simple and effective solutions for their financial needs.</p>
-<padding>
-    <h3>Key Features:</h3>
-    <ul>
-        <li>Easy to use interface</li>
-        <li>Secure transactions</li>
-        <li>24/7 member support</li>
-    </ul>
-</section>    
-   
-    <footer>
-        <p>&copy; 2024 BroForceEnt.SISL</p>
-    </footer>
+<header>
+  <h1>Welcome To The Seven Share Society</h1>
+</header>
+
+<!-- Features Section -->
+<section>
+  <h2>Our Features</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>Secure Contributions</h3>
+      <p>Members can confidently contribute money with payment confirmation.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Member Login</h3>
+      <p>Simple username and 4-digit PIN login for secure access.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Easy Transactions</h3>
+      <p>Input contribution details easily and track your payments.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Login Form -->
+<section class="form-container" id="loginSection">
+  <h2>Member Login</h2>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required />
+
+    <label for="pin">4-Digit PIN:</label>
+    <input type="password" id="pin" maxlength="4" pattern="\d{4}" required />
+
+    <button type="submit">Login</button>
+  </form>
+</section>
+
+<!-- Contribution Form (hidden initially) -->
+<section class="form-container" id="contributionSection">
+  <h2>Contribution Details</h2>
+  <form id="contributionForm">
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" min="1" required />
+
+    <label for="transactionId">Transaction ID:</label>
+    <input type="text" id="transactionId" required />
+
+    <label>
+      <input type="checkbox" id="paymentConfirmed" />
+      I confirm that payment has been completed.
+    </label>
+
+    <button type="submit">Submit Contribution</button>
+  </form>
+  <button id="viewRecordsBtn" style="margin-top:10px; background-color:#28a745;">View Records</button>
+  <button id="logoutBtn" style="margin-top:10px; background-color:#6c757d;">Logout</button>
+</section>
+
+<!-- Records Page -->
+<section id="recordsSection">
+  <h2>Transaction Records</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="width:100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Confirmed</th>
+      </tr>
+    </thead>
+    <tbody id="recordsTableBody">
+      <!-- Records will be inserted here -->
+    </tbody>
+  </table>
+  <button id="backBtn" style="margin-top:20px; background-color:#007bff; color:white;">Back to Contribution</button>
+  
+</section>
+
+<script>
+  // Get elements
+  const loginSection = document.getElementById('loginSection');
+  const contributionSection = document.getElementById('contributionSection');
+  const recordsSection = document.getElementById('recordsSection');
+
+  const loginForm = document.getElementById('loginForm');
+  const contributionForm = document.getElementById('contributionForm');
+
+  const viewRecordsBtn = document.getElementById('viewRecordsBtn');
+  const backBtn = document.getElementById('backBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+
+  const recordsTableBody = document.getElementById('recordsTableBody');
+
+  // Check if user is already logged in
+  if(localStorage.getItem('loggedIn') === 'true'){
+    showContributionSection();
+  }
+
+  // Login handler
+  loginForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const username = document.getElementById('username').value.trim();
+    const pin = document.getElementById('pin').value.trim();
+
+    if(username && /^\d{4}$/.test(pin)){
+      // Save login state
+      localStorage.setItem('loggedIn', 'true');
+      localStorage.setItem('username', username);
+      showContributionSection();
+    } else {
+      alert('Please enter valid credentials.');
+    }
+  });
+
+  // Show contribution section
+  function showContributionSection(){
+    loginSection.style.display = 'none';
+    contributionSection.style.display = 'block';
+    recordsSection.style.display = 'none';
+  }
+
+  // Show records section
+  function showRecordsSection(){
+    loginSection.style.display = 'none';
+    contributionSection.style.display = 'none';
+    recordsSection.style.display = 'block';
+    loadRecords();
+  }
+
+  // Load records from localStorage
+  function loadRecords(){
+    recordsTableBody.innerHTML = '';
+    const records = JSON.parse(localStorage.getItem('contributions')) || [];
+    records.forEach((record, index) => {
+      const row = document.createElement('tr');
+
+      const nameCell = document.createElement('td');
+      nameCell.textContent = record.username;
+      row.appendChild(nameCell);
+
+      const amountCell = document.createElement('td');
+      amountCell.textContent = record.amount;
+      row.appendChild(amountCell);
+
+      const confirmedCell = document.createElement('td');
+      confirmedCell.innerHTML = `<input type="checkbox" ${record.confirmed ? 'checked' : ''} disabled />`;
+      row.appendChild(confirmedCell);
+
+      recordsTableBody.appendChild(row);
+    });
+  }
+
+  // View records button
+  document.getElementById('viewRecordsBtn').addEventListener('click', showRecordsSection);
+
+  // Back button
+  document.getElementById('backBtn').addEventListener('click', showContributionSection);
+
+  // Logout
+ logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('loggedIn');
+    localStorage.removeItem('username');
+    showLogin();
+  });
+
+  // Show login (reset everything)
+  function showLogin(){
+    loginSection.style.display = 'block';
+    contributionSection.style.display = 'none';
+    recordsSection.style.display = 'none';
+    document.getElementById('loginForm').reset();
+  }
+
+  // Handle contribution form submission
+  contributionForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const amount = document.getElementById('amount').value.trim();
+    const transactionId = document.getElementById('transactionId').value.trim();
+    const paymentConfirmed = document.getElementById('paymentConfirmed').checked;
+    const username = localStorage.getItem('username');
+
+    if(!paymentConfirmed){
+      alert('Please confirm that payment is done.');
+      return;
+    }
+
+    if(amount && transactionId){
+      const newRecord = {
+        username: username,
+        amount: amount,
+        confirmed: false // or true if you want
+      };
+      const records = JSON.parse(localStorage.getItem('contributions')) || [];
+      records.push(newRecord);
+      localStorage.setItem('contributions', JSON.stringify(records));
+      alert('Thank you! Your contribution has been recorded.');
+      contributionForm.reset();
+    } else {
+      alert('Please fill all fields.');
+    }
+  });
+</script>
 </body>
 </html>
